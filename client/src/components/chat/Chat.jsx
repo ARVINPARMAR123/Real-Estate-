@@ -6,7 +6,7 @@ import { format } from "timeago.js";
 import { SocketContext } from "../../context/SocketContext";
 import { useNotificationStore } from "../../lib/notificationStore";
 
-function Chat({ chats }) {
+function Chat({ chats, initialChatId, initialReceiver }) {
   const [chat, setChat] = useState(null);
   const { currentUser } = useContext(AuthContext);
   const { socket } = useContext(SocketContext);
@@ -30,6 +30,15 @@ function Chat({ chats }) {
       console.log(err);
     }
   };
+
+  const didAutoOpenRef = useRef(false);
+  useEffect(() => {
+    if (didAutoOpenRef.current) return;
+    if (!initialChatId || !initialReceiver) return;
+    if (!currentUser) return;
+    didAutoOpenRef.current = true;
+    handleOpenChat(initialChatId, initialReceiver);
+  }, [initialChatId, initialReceiver, currentUser]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

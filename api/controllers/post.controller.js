@@ -36,6 +36,7 @@ export const getPost = async (req, res) => {
         postDetail: true,
         user: {
           select: {
+            id: true,
             username: true,
             avatar: true,
           },
@@ -43,24 +44,30 @@ export const getPost = async (req, res) => {
       },
     });
 
+    if (!post) return res.status(404).json({ message: "Post not found" });
+
     const token = req.cookies?.token;
 
+    let isSaved = false;
     if (token) {
-      jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
-        if (!err) {
-          const saved = await prisma.savedPost.findUnique({
-            where: {
-              userId_postId: {
-                postId: id,
-                userId: payload.id,
-              },
+      try {
+        const payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        const saved = await prisma.savedPost.findUnique({
+          where: {
+            userId_postId: {
+              postId: id,
+              userId: payload.id,
             },
-          });
-          res.status(200).json({ ...post, isSaved: saved ? true : false });
-        }
-      });
+          },
+        });
+        isSaved = Boolean(saved);
+      } catch (e) {
+        // invalid/expired token: treat as not saved
+        isSaved = false;
+      }
     }
-    res.status(200).json({ ...post, isSaved: false });
+
+    res.status(200).json({ ...post, isSaved });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get post" });

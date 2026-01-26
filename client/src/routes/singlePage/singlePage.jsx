@@ -27,6 +27,21 @@ function SinglePage() {
     }
   };
 
+  const handleChat = async () => {
+    if (!currentUser) return navigate("/login");
+    try {
+      const res = await apiRequest.post("/chats", { receiverId: post.userId });
+      navigate("/profile", {
+        state: {
+          openChatId: res.data.id,
+          receiver: post.user,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="singlePage">
       <div className="details">
@@ -139,7 +154,7 @@ function SinglePage() {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-            <button>
+            <button onClick={handleChat}>
               <img src="/chat.png" alt="" />
               Send a Message
             </button>

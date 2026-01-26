@@ -31,9 +31,9 @@ function Card({ item }) {
             <div className="icon">
               <img src="/save.png" alt="" />
             </div>
-            <div className="icon">
+            <Link to={`/${item.id}`} className="icon">
               <img src="/chat.png" alt="" />
-            </div>
+            </Link>
           </div>
         </div>
       </div>

@@ -2,7 +2,13 @@ import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import "./profilePage.scss";
 import apiRequest from "../../lib/apiRequest";
-import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
+import {
+  Await,
+  Link,
+  useLoaderData,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import { Suspense, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -12,6 +18,9 @@ function ProfilePage() {
   const { updateUser, currentUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const openChatId = location.state?.openChatId;
+  const receiver = location.state?.receiver;
 
   const handleLogout = async () => {
     try {
@@ -79,7 +88,13 @@ function ProfilePage() {
               resolve={data.chatResponse}
               errorElement={<p>Error loading chats!</p>}
             >
-              {(chatResponse) => <Chat chats={chatResponse.data}/>}
+              {(chatResponse) => (
+                <Chat
+                  chats={chatResponse.data}
+                  initialChatId={openChatId}
+                  initialReceiver={receiver}
+                />
+              )}
             </Await>
           </Suspense>
         </div>
