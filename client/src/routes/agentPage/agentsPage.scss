@@ -1,0 +1,70 @@
+.agents-page {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  padding: 5rem 2rem;
+
+  .agents-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    p {
+      color: #555;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  .agents-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .agent-card {
+      background-color: #fafafa;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 1.2rem;
+        border: 3px solid #fece51;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+      }
+
+      .role {
+        color: #fece51;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .info {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+}

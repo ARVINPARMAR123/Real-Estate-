@@ -1,0 +1,151 @@
+@import "../../responsive.scss";
+
+.aboutPage {
+  font-family: "Poppins", sans-serif;
+  color: #1d1d1d;
+  overflow-y: scroll;
+  height: 100%;
+  scrollbar-width: none;
+
+  .aboutPage::-webkit-scrollbar {
+    display: none;
+  }
+
+  .aboutHero {
+    background: url("https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg")
+      center/cover no-repeat;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .heroContent {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 2.5rem 3.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      // background-color: gray;
+
+      @include sm {
+        margin: 0px 20px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #555;
+      }
+    }
+  }
+
+  .aboutIntro {
+    padding: 4rem 2rem;
+    text-align: center;
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+
+  .aboutFeatures {
+    background-color: #f9f9f9;
+    padding: 4rem 2rem;
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 16px;
+        max-width: 280px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon {
+          font-size: 2.5rem;
+          color: #fece51;
+          margin-bottom: 1rem;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+          margin-bottom: 0.8rem;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #555;
+        }
+      }
+    }
+  }
+
+  .aboutCTA {
+    padding: 4rem 2rem;
+    text-align: center;
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .Link {
+      background-color: #f7cd64;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #fece51;
+        transform: translateY(-4px);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .aboutHero .heroContent {
+      padding: 2rem;
+    }
+
+    .aboutFeatures .cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

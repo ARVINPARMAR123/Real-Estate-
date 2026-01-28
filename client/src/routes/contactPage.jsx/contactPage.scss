@@ -1,0 +1,112 @@
+.contact-page {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: #111;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  .aboutPage::-webkit-scrollbar {
+    display: none;
+  }
+
+  .contact-hero {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #666;
+    }
+  }
+
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3rem 2rem;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: auto;
+
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-box {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.2rem;
+
+        .icon {
+          color: #fece51;
+          margin-right: 1rem;
+          font-size: 1.2rem;
+        }
+
+        p {
+          margin: 0;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .contact-form {
+      flex: 2;
+      min-width: 300px;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        .form-group {
+          input,
+          textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+
+            &:focus {
+              border-color: #fece51;
+            }
+          }
+        }
+
+        button {
+          padding: 1rem 2rem;
+          background-color: #ffd66e;
+          color: #fff;
+          font-weight: 600;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background 0.3s;
+
+          &:hover {
+            background-color: #fece51;
+          }
+        }
+      }
+    }
+  }
+}
