@@ -1,0 +1,200 @@
+@import "../../responsive.scss";
+
+.footerPage {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  margin-top: 40px;
+  width: 100%;
+
+  .footerContainer {
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 60px 20px 0;
+
+    @include md {
+      padding: 40px 20px 0;
+    }
+
+    .footerWrapper {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 50px;
+      padding-bottom: 40px;
+
+      @include lg {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+      }
+
+      @include md {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      @include sm {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footerSection {
+        h3 {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 20px;
+          color: white;
+          position: relative;
+          padding-bottom: 10px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #fece51;
+            border-radius: 2px;
+          }
+        }
+
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 15px;
+
+          img {
+            width: 32px;
+            height: 32px;
+          }
+
+          span {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+          }
+        }
+
+        .description {
+          font-size: 14px;
+          line-height: 1.8;
+          color: rgba(255, 255, 255, 0.85);
+          margin-bottom: 20px;
+        }
+
+        .socialLinks {
+          display: flex;
+          gap: 15px;
+
+          a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+            font-size: 16px;
+
+            &:hover {
+              background: #fece51;
+              color: #1e3c72;
+              transform: translateY(-3px);
+            }
+          }
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            margin-bottom: 12px;
+
+            a {
+              color: rgba(255, 255, 255, 0.85);
+              text-decoration: none;
+              font-size: 14px;
+              transition: all 0.3s;
+              display: inline-block;
+
+              &:hover {
+                color: #fece51;
+                padding-left: 5px;
+              }
+            }
+          }
+
+          &.contactInfo {
+            li {
+              display: flex;
+              align-items: flex-start;
+              gap: 12px;
+              color: rgba(255, 255, 255, 0.85);
+              font-size: 14px;
+              line-height: 1.6;
+
+              i {
+                color: #fece51;
+                margin-top: 3px;
+                font-size: 16px;
+                min-width: 16px;
+              }
+
+              span {
+                flex: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footerBottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 25px 0;
+
+      .bottomWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include md {
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+        }
+
+        p {
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 14px;
+          margin: 0;
+        }
+
+        .bottomLinks {
+          display: flex;
+          gap: 25px;
+
+          @include sm {
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+
+            &:hover {
+              color: #fece51;
+            }
+          }
+        }
+      }
+    }
+  }
+}

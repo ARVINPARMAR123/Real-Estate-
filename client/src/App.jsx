@@ -1,4 +1,5 @@
 import HomePage from "./routes/homePage/homePage";
+import Home from "./routes/dashboard/dashboardPage";
 import AboutPage from "./routes/aboutPage/aboutPage";
 import AgentsPage from "./routes/agentPage/agentsPage";
 import ContactPage from "./routes/contactPage.jsx/contactPage";
@@ -11,6 +12,7 @@ import Login from "./routes/login/login";
 import Register from "./routes/register/register";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
 import NewPostPage from "./routes/newPostPage/newPostPage";
+import FooterPage from "./routes/footerPage/footerPage";
 import { listPageLoader, profilePageLoader, singlePageLoader } from "./lib/loaders";
 
 function App() {
@@ -60,6 +62,10 @@ function App() {
       path: "/",
       element: <RequireAuth />,
       children: [
+        {
+          path: "/home",
+          element: <Home />,
+        },
         {
           path: "/profile",
           element: <ProfilePage />,

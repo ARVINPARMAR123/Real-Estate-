@@ -87,6 +87,7 @@ nav {
         background-color: #fece51;
         cursor: pointer;
         border: none;
+        border-radius: 5px;
         position: relative;
         
         .notification{
@@ -109,6 +110,7 @@ nav {
     .register {
       background-color: #fece51;
       font: message-box;
+      border-radius: 5px;
     }
 
     .log{
